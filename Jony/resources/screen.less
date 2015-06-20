@@ -1,0 +1,699 @@
+// Variables
+@alertbg: #FDD;
+@alertborder: #F88;
+@border: #EBEBEB;
+@hilight: #007AFF;
+@mw-tab-space: 2%;
+@neue: #E9392D;
+@pagebg: #202020;
+
+// Mix-ins
+.sideless() {
+	border-width:1px 0;
+}
+.whitebox() {
+	background-color:#FFF;
+	border-color:@border;
+}
+
+// The real deal.
+* {
+    -webkit-font-smoothing:subpixel-antialiased; // Needed for Safari.
+    font-family:"SF Text", "SF UI Text", "SF Compact Text", "San Francisco Text", "Helvetica Neue", Helvetica, sans-serif;
+}
+a, a:active, a:visited,
+div#content a {
+	color:@hilight;
+}
+body {
+	background-color:@pagebg;
+	font-size:11pt;
+	margin:0;
+}
+div#content a.new,
+div#content a.new:visited {
+	color:@neue;
+}
+div#mw-footer {
+	color:#FFF;
+	margin-left:160px;
+
+	ul {
+		list-style:none;
+		margin-left:0;
+
+		&#contentinfo {
+			float:right;
+		}
+		&.footer-privacy {
+			clear:left;
+		}
+
+		> li {
+			float:left;
+			padding-right:0.5em;
+		}
+	}
+}
+div#mw-panel {
+	background-color:#363631;
+	margin-left:10px;
+	padding-top:10px;
+	position:fixed;
+	top:160px;
+	width:150px;
+
+	a#feed-atom {
+		// Wireframe
+		background-image:url("images/feed-icon.png"), url("images/feed-icon.svg");
+
+		// Looks more like an icon from Settings.
+		// background-image:url("images/feed-icon-alt.png"), url("images/feed-icon-alt.svg");
+	}
+	h3 {
+		background-color:#080808;
+		color:#FFF;
+		font-size:1em;
+		padding:5pt 0 5pt 15px;
+	}
+	ul {
+		font-size:0.9em;
+		list-style:none;
+		margin:0 0 10px 15px;
+	}
+}
+div#mw-toolbar {
+	// The RGB values for the hex and alpha values don't match to account for the title bar's translucency.
+	background-color:#F5F5F5 !important;
+	background-color:rgba(249,249,249,0.96) !important;
+	border-bottom:1px solid #B2B2B2;
+	border-bottom-color:rgba(178,178,178,0.5);
+	left:0;
+	position:fixed;
+	top:0;
+	width:100%;
+	z-index:1; // Needed so div#localNotice isn't drawn above the toolbar.
+
+	// Hide navigation headers
+	> h2, h3 {
+		display:none;
+	}
+
+	// Gives that iOS tab appearance.
+	div#mw-tabs {
+		> div.mw-portlet {
+			font-size:10pt;
+			display:inline;
+
+			/*
+			 * If you update the CSS here, update ul#preftoc too.
+			 * I'm too lazy to figure out how to snippet this.
+			 * (Well, assuming it can be done.)
+			 */
+			ul {
+				display:block;
+				float:left;
+				list-style:none;
+				margin:18px 0 0 @mw-tab-space;
+
+				> li {
+					border:1px solid @hilight;
+					border-left-width:0;
+					float:left;
+					line-height:1.7em;
+					margin:0;
+					vertical-align:middle;
+
+					&:active {
+						background-color:#7CF;
+						background-color:rgba(130,160,255,0.4);
+					}
+					// Corners
+					&:first-child {
+						border-bottom-left-radius:4px;
+						border-left-width:1px;
+						border-top-left-radius:4px;
+					}
+					&:last-child {
+						border-bottom-right-radius:4px;
+						border-top-right-radius:4px;
+					}
+					// Point out new pages.
+					&.new {
+						border-color:@neue !important;
+
+						&:active {
+							background-color:#F8EBEA;
+							background-color:rgba(255,140,120,0.35);
+						}
+						&.selected {
+							background-color:@neue !important;
+						}
+
+						> a {
+							color:#E02342 !important;
+						}
+						> a:active {
+							color:#E02342 !important;
+						}
+					}
+					&.selected {
+						background-color:@hilight;
+						> a {
+							color:#FFF !important;
+						}
+						> a:active {
+							color:rgba(255,255,255,0.8) !important;
+						}
+					}
+
+					> a {
+						display:inline;
+						padding:0.2em 0.8em;
+					}
+					> a:active {
+						color:@hilight;
+					}
+				}
+			}
+		}
+		// Search box.
+		form#p-search {
+			float:right;
+			margin:17px 9% 17px 0;
+			width:25%;
+
+			input {
+				font-size:10pt;
+				line-height:1.7em;
+
+				&#searchInput {
+					background-color:#E3E4E6;
+					background-color:rgba(0, 0, 0, 0.08);
+					border:0;
+					border-radius:4px;
+					display:inline;
+					text-align:center;
+					width:60%;
+					-webkit-appearance:textfield;
+
+					&:focus {
+						outline:0;
+						text-align:left;
+					}
+					// Styling the placeholder. Vendor prefixes suck.
+					&::-webkit-input-placeholder {
+						color:#8E8E93;
+					}
+					&::-moz-placeholder {
+						color:#8E8E93;
+						opacity:1;
+					}
+					&:-ms-input-placeholder {
+						color:#8E8E93;
+					}
+				}
+				&[type="submit"] {
+					color:@hilight;
+
+					&:focus {
+					opacity:0.4;
+					}
+				}
+			}
+		}
+	}
+	// Styled like the iOS status bar
+	div#p-personal {
+		font-size:10pt;
+		height:20px; // Needed for the magical double-click scrolling.
+		padding-top:0;
+		width:87.5%;
+
+		ul {
+			border:0;
+			//float:left;
+			list-style:none;
+			margin:0 23%;
+			text-align:center;
+			width:100%;
+
+			> li {
+				border:0 !important;
+				float:left;
+				margin:0 1em;
+
+				> a {
+					color:#000 !important;
+					font-weight:bold;
+				}
+			}
+		}
+	}
+
+	> ul > li a {
+		color:#000;
+		font-size:1em;
+	}
+}
+div#mw-toolbar,
+div#mw-toolbar-spacer {
+	background-color:#EFEFF4;
+	height:80px;
+	margin:0 0 0 160px;
+}
+div#preferences {
+	clear:both;
+}
+div#p-logo {
+	background-color:@pagebg;
+	position:fixed;
+
+	&, & > a {
+		display:block;
+		height:160px;
+		width:160px;
+	}
+}
+div.mw-body {
+	background-color:#EFEFF4;
+	margin-left:160px;
+	overflow-x:auto;
+	padding:32px 16px;
+
+	// We just got a letter! I wonder who it's from?
+	> div.usermessage {
+		background-color:#FDD;
+		border:1px solid #F88;
+		.sideless;
+	}
+
+	// Highlight effect on click.
+	a:active,
+	input[type="submit"]:active {
+		background-color:#AFAFAF;
+		background-color:rgba(0,0,0,0.27) !important;
+		border-radius:4px;
+		color:#085DBA !important;
+	}
+	a:active {
+		margin:-0.25em -3px -0.25em -3px;
+		padding:0.25em 3px 0.25em 3px;
+	}
+	a.external,
+	a.external:visited,
+	a.extiw,
+	a.extiw:visited {
+		color:#1224D4;
+	}
+	a.image:active {
+		background-color:transparent;
+	}
+	// This can use some work, but it's probably not even going to be used.
+	div#localNotice {
+		background-color:#FFD;
+		border:1px solid #DD0;
+		.sideless;
+		font-size:0.9em;
+		font-weight:bold;
+		padding:0.25em 0.5em;
+	}
+	// Table of contents.
+	div#toc {
+		background-color:#FFF;
+		border:0;
+		border-radius:4px;
+
+		> ul {
+			font-size:0.9em;
+		}
+	}
+	div#userloginForm {
+		margin-right:0;
+		width:100%;
+	}
+	// [[Special:UserPreferences]]
+	div.editOptions {
+		background-color:#FFF;
+		border:1px solid @border;
+		margin:1em 0;
+	}
+	// Login form. [[Special:UserLogin]]
+	form.mw-ui-vform {
+		width:100%;
+
+		// "Create another account" link
+		> div#mw-createaccount-another > a {
+			background-color:transparent;
+			border-width:0;
+			color:@hilight;
+			margin-left:0;
+			padding:0;
+
+			&:active {
+				margin:-0.25em -3px -0.25em -3px;
+				padding:0.25em 3px 0.25em 3px;
+			}
+			&:focus, &:hover {
+				box-shadow:none;
+			}
+		}
+		// "Help with logging in" link
+		> div#mw-userlogin-help {
+			height:2em;
+			margin:0;
+			margin-top:1em;
+			vertical-align:middle;
+		}
+
+		// Error for wrong user/password
+		div.errorbox {
+			background-color:@alertbg;
+			border-color:@alertborder;
+			.sideless;
+			width:100%;
+		}
+		div.mw-ui-vform-field > div.mw-input {
+			margin-right:1em;
+		}
+		// Warning for already being logged in
+		div.warningbox {
+			background-color:#FFC;
+			border-color:#DD3;
+			.sideless;
+			width:100%;
+		}
+
+		// Form elements.
+		input {
+			background-color:#FFF;
+			border:1px solid #E3E3E3;
+			border-width:1px 0;
+			font-size:11pt;
+			padding-top:1px;
+
+			//The login button.
+			&.mw-ui-button {
+				border-radius:6px;
+				border-width:0;
+				color:@hilight;
+				font-weight:normal;
+				height:100%;
+				line-height:2em;
+				margin-top:0;
+				padding:0;
+				padding-left:1em;
+				text-align:left;
+				vertical-align:middle;
+
+				&:focus, &:hover {
+					background-image:none;
+					box-shadow:none;
+				}
+			}
+			// The checkbox.
+			&.mw-ui-checkbox {
+				height:2em;
+
+				> label {
+					padding-left:2em !important;
+				}
+			}
+			// The text boxes.
+			&.mw-ui-input {
+			//	background:url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjE0cHgiIHdpZHRoPSIxNHB4IiB2ZXJzaW9uPSIxLjEiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMTQgMTQiPgogPGcgaWQ9IlBhZ2UtMSIgZmlsbC1ydWxlPSJldmVub2RkIiBmaWxsPSIjQkJCQUMxIj4KICA8cGF0aCBpZD0iUmVjdGFuZ2xlLTEiIGQ9Im03LjEzNiAwLjYzNjA0bDYuMzY0IDYuMzY0LTEuNzY4IDEuNzY3OC02LjM2MzctNi4zNjQgMS43Njc3LTEuNzY3OHYwLjAwMDA0eiIvPgogIDxwYXRoIGlkPSJSZWN0YW5nbGUtMS1Db3B5IiBkPSJtNy4xMzYgMTMuMzY0bDYuMzY0LTYuMzY0LTEuNzY4LTEuNzY3OC02LjM2MzcgNi4zNjM4IDEuNzY3NyAxLjc2OHoiLz4KIDwvZz4KPC9zdmc+Cg==") no-repeat fixed; // Chevron
+				color:#85858A;
+				height:2em;
+				margin-bottom:1em;
+				padding:0;
+				padding-left:1em;
+				width:100%;
+
+				&:focus {
+					background-image:none;
+					box-shadow:none;
+					color:#000;
+				}
+			}
+			&[type="checkbox"]:focus + label::after {
+				display:none !important;
+			}
+		}
+
+		label {
+			> a.mw-ui-flush-right {
+				float:none;
+			}
+		}
+	}
+	h1, h2 {
+		font-family:"SF Display", "SF UI Display", "SF Compact Display", "San Francisco Display", "Helvetica Neue", Helvetica, sans-serif;
+		font-weight:500;
+	}
+	h3, h4 {
+		font-weight:normal;
+	}
+	h5, h6 {
+		font-weight:300;
+	}
+}
+// Search suggestions.
+div.suggestions {
+	background-color:#FFF;
+	border:1px solid @border;
+	margin-top:0;
+
+	div.suggestions-results {
+		border:0;
+
+		> a.mw-searchSuggest-link {
+			background-color:#F0F;
+		}
+		div.suggestions-result {
+			border-bottom:1px solid @border;
+			margin-left:15px;
+			padding-left:0;
+		}
+	}
+	div.suggestions-result-current {
+		background-color:#D0D0D0;
+		color:#000;
+		margin-left:0 !important;
+		padding-left:15px !important;
+
+		> * {
+			color:#000;
+			margin-left:0 !important;
+			padding-left:0;
+		}
+	}
+	div.suggestions-special {
+		border:0;
+		border-top:1px solid @border;
+		padding:0.25em 0;
+
+		> * {
+			margin-left:15px;
+			padding-left:0;
+		}
+	}
+}
+// YOU get a white box. And YOU get a white box. EVERYBODY gets a white box!
+div.thumbinner,
+fieldset,
+li.gallerybox div.thumb,
+pre {
+	.whitebox;
+}
+// Make submit buttons look like that blue, tappable text.
+input[type="submit"] {
+	background-color:transparent;
+	border:0;
+	color:@hilight;
+	font-size:1em;
+
+	&:focus {
+		outline:0;
+	}
+}
+h1.firstHeading {
+	padding:0;
+}
+h1, h2, h3, h4, h5, h6,
+legend {
+	border:0;
+	color:#7C7C81;
+	text-transform:uppercase;
+}
+img.thumbimage,
+ul#filetoc {
+	border-color:@border;
+}
+legend {
+	background-color:#FFF;
+	line-height:1em;
+	padding:0.5em;
+}
+p {
+	line-height:1.25em;
+}
+pre {
+	white-space:pre-wrap;
+}
+// Comparing revisions
+table.diff {
+	td.diff-addedline {
+		background-color:#CFC;
+		border-color:#AEA;
+
+		ins.diffchange {
+			background-color:#AEA;
+		}
+	}
+	td.diff-deletedline {
+		background-color:@alertbg;
+		border-color:@alertborder;
+
+		del.diffchange {
+			background-color:@alertborder;
+		}
+	}
+}
+// Super complex table CSS that somehow achieves what we want
+table.wikitable {
+	background-color:transparent; // This actually makes a difference if you blow up the page by like... 900% or something.
+	border:0;
+	border-radius:4px;
+
+	> tbody > tr {
+		&:first-child {
+			// All the cells in the top row
+			> * {
+				border-top:0;
+
+				// top left
+				&:first-child {
+					border-top-left-radius:4px;
+				}
+				// top right
+				&:last-child {
+					border-top-right-radius:4px;;
+				}
+			}
+		}
+		&:last-child {
+			// All the cells in the bottom row
+			> * {
+				border-bottom:0;
+
+				// bottom left
+				&:first-child {
+					border-bottom-left-radius:4px;
+				}
+				// bottom right
+				&:last-child {
+					border-bottom-right-radius:4px;
+				}
+			}
+		}
+
+		>td  {
+			background-color:#FFF;
+		}
+		> th {
+			background-color:#F3F3F3;
+		}
+		// All the cells!
+		> * {
+			border-color:#E3E3E3;
+			padding:4px;
+
+			// leftmost column
+			&:first-child {
+				border-left:0;
+			}
+			// rightmost column
+			&:last-child {
+				border-right:0;
+			}
+		}
+	}
+}
+ul#filetoc {
+	.sideless;
+}
+// Looking at page history.
+ul#pagehistory {
+	list-style:none;
+	margin-left:0;
+
+	> li {
+		padding:0.1em 0.5em;
+	}
+	> li.after,
+	> li.before {
+		border:0;
+	}
+	> li.between,
+	> li.selected {
+		.whitebox;
+		border-style:solid;
+		.sideless;
+	}
+}
+// Deja vu? iOS tab stuff again.
+ul#preftoc {
+	display:block;
+	list-style:none;
+	margin:18px 0 0 @mw-tab-space;
+
+	> li {
+		border:1px solid @hilight;
+		border-left-width:0;
+		float:left;
+		line-height:1.7em;
+		margin:0;
+		vertical-align:middle;
+
+		&:active {
+			background-color:#7CF;
+			background-color:rgba(130,160,255,0.4);
+		}
+		// Corners
+		&:first-child {
+			border-bottom-left-radius:4px;
+			border-left-width:1px;
+			border-top-left-radius:4px;
+		}
+		&:last-child {
+			border-bottom-right-radius:4px;
+			border-top-right-radius:4px;
+		}
+		// Give The Chosen One a highlight
+		&.selected {
+			background-color:@hilight;
+			> a {
+				color:#FFF !important;
+			}
+			> a:active {
+				color:rgba(255,255,255,0.8) !important;
+			}
+		}
+
+		> a {
+			display:inline;
+			padding:0.2em 0.8em;
+
+			// If you don't do this, the preference tabs get that gray highlight on click as well.
+			&:active {
+				background-color:transparent;
+				color:@hilight !important;
+				margin:0 !important;
+				padding:0.2em 0.8em !important;
+			}
+			&:focus {
+				outline:0;
+			}
+		}
+	}
+}
