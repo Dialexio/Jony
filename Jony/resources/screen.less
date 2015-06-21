@@ -3,8 +3,7 @@
 @alertborder: #F88;
 @border: #EBEBEB;
 @hilight: #007AFF;
-@mw-tab-space: 2%;
-@neue: #E9392D;
+@newlink: #E9392D;
 @pagebg: #202020;
 
 // Mix-ins
@@ -30,9 +29,13 @@ body {
 	font-size:11pt;
 	margin:0;
 }
+code {
+	.whitebox;
+	padding:1px 2px;
+}
 div#content a.new,
 div#content a.new:visited {
-	color:@neue;
+	color:@newlink;
 }
 div#mw-footer {
 	color:#FFF;
@@ -114,7 +117,7 @@ div#mw-toolbar {
 				display:block;
 				float:left;
 				list-style:none;
-				margin:18px 0 0 @mw-tab-space;
+				margin:18px 0 0 2%;
 
 				> li {
 					border:1px solid @hilight;
@@ -140,14 +143,14 @@ div#mw-toolbar {
 					}
 					// Point out new pages.
 					&.new {
-						border-color:@neue !important;
+						border-color:@newlink !important;
 
 						&:active {
 							background-color:#F8EBEA;
 							background-color:rgba(255,140,120,0.35);
 						}
 						&.selected {
-							background-color:@neue !important;
+							background-color:@newlink !important;
 						}
 
 						> a {
@@ -643,7 +646,7 @@ ul#pagehistory {
 ul#preftoc {
 	display:block;
 	list-style:none;
-	margin:18px 0 0 @mw-tab-space;
+	margin:18px 0 0 2%;
 
 	> li {
 		border:1px solid @hilight;
