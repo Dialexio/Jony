@@ -195,7 +195,7 @@ div#mw-toolbar {
 					display:inline;
 					text-align:center;
 					width:60%;
-					-webkit-appearance:textfield;
+					-webkit-appearance:textfield; // Otherwise you get a search box that doesn't get styled as much in WebKit.
 
 					&:focus {
 						outline:0;
@@ -684,7 +684,7 @@ ul#preftoc {
 
 			// If you don't do this, the preference tabs get that gray highlight on click as well.
 			&:active {
-				background-color:transparent;
+				background-color:transparent !important;
 				color:@hilight !important;
 				margin:0 !important;
 				padding:0.2em 0.8em !important;
