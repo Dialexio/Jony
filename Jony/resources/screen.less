@@ -18,7 +18,6 @@
 // The real deal.
 * {
     -webkit-font-smoothing:subpixel-antialiased; // Needed for Safari.
-    font-family:"SF Text", "SF UI Text", "SF Compact Text", "San Francisco Text", "Helvetica Neue", Helvetica, sans-serif;
 }
 a, a:active, a:visited,
 div#content a {
@@ -26,6 +25,7 @@ div#content a {
 }
 body {
 	background-color:@pagebg;
+	font-family:"SF Text", "SF UI Text", "SF Compact Text", "San Francisco Text", "Helvetica Neue", Helvetica, sans-serif;
 	font-size:11pt;
 	margin:0;
 }
@@ -461,6 +461,10 @@ div.mw-body {
 	h5, h6 {
 		font-weight:300;
 	}
+	ol {
+		line-height:1.45em;
+		margin:0.3em 0 0 1.6em;
+	}
 }
 // Search suggestions.
 div.suggestions {
@@ -538,6 +542,9 @@ legend {
 	background-color:#FFF;
 	line-height:1em;
 	padding:0.5em;
+}
+li {
+	margin-bottom:0;
 }
 p {
 	line-height:1.25em;
@@ -624,80 +631,85 @@ table.wikitable {
 		}
 	}
 }
-ul#filetoc {
-	.sideless;
-}
-// Looking at page history.
-ul#pagehistory {
-	list-style:none;
-	margin-left:0;
+ul {
+	line-height:1.45em;
 
-	> li {
-		padding:0.1em 0.5em;
-	}
-	> li.after,
-	> li.before {
-		border:0;
-	}
-	> li.between,
-	> li.selected {
-		.whitebox;
-		border-style:solid;
+	&#filetoc {
 		.sideless;
 	}
-}
-// Deja vu? iOS tab stuff again.
-ul#preftoc {
-	display:block;
-	list-style:none;
-	margin:18px 0 0 2%;
 
-	> li {
-		border:1px solid @hilight;
-		border-left-width:0;
-		float:left;
-		line-height:1.7em;
-		margin:0;
-		vertical-align:middle;
+	// Looking at page history.
+	&#pagehistory {
+		list-style:none;
+		margin-left:0;
 
-		&:active {
-			background-color:#7CF;
-			background-color:rgba(130,160,255,0.4);
+		> li {
+			padding:0.1em 0.5em;
 		}
-		// Corners
-		&:first-child {
-			border-bottom-left-radius:4px;
-			border-left-width:1px;
-			border-top-left-radius:4px;
+		> li.after,
+		> li.before {
+			border:0;
 		}
-		&:last-child {
-			border-bottom-right-radius:4px;
-			border-top-right-radius:4px;
+		> li.between,
+		> li.selected {
+			.whitebox;
+			border-style:solid;
+			.sideless;
 		}
-		// Give The Chosen One a highlight
-		&.selected {
-			background-color:@hilight;
-			> a {
-				color:#FFF !important;
-			}
-			> a:active {
-				color:rgba(255,255,255,0.8) !important;
-			}
-		}
+	}
+	// Deja vu? iOS tab stuff again.
+	&#preftoc {
+		display:block;
+		list-style:none;
+		margin:18px 0 0 2%;
 
-		> a {
-			display:inline;
-			padding:0.2em 0.8em;
+		> li {
+			border:1px solid @hilight;
+			border-left-width:0;
+			float:left;
+			line-height:1.7em;
+			margin:0;
+			vertical-align:middle;
 
-			// If you don't do this, the preference tabs get that gray highlight on click as well.
 			&:active {
-				background-color:transparent !important;
-				color:@hilight !important;
-				margin:0 !important;
-				padding:0.2em 0.8em !important;
+				background-color:#7CF;
+				background-color:rgba(130,160,255,0.4);
 			}
-			&:focus {
-				outline:0;
+			// Corners
+			&:first-child {
+				border-bottom-left-radius:4px;
+				border-left-width:1px;
+				border-top-left-radius:4px;
+			}
+			&:last-child {
+				border-bottom-right-radius:4px;
+				border-top-right-radius:4px;
+			}
+			// Give The Chosen One a highlight
+			&.selected {
+				background-color:@hilight;
+				> a {
+					color:#FFF !important;
+				}
+				> a:active {
+					color:rgba(255,255,255,0.8) !important;
+				}
+			}
+
+			> a {
+				display:inline;
+				padding:0.2em 0.8em;
+
+				// If you don't do this, the preference tabs get that gray highlight on click as well.
+				&:active {
+					background-color:transparent !important;
+					color:@hilight !important;
+					margin:0 !important;
+					padding:0.2em 0.8em !important;
+				}
+				&:focus {
+					outline:0;
+				}
 			}
 		}
 	}
