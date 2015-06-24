@@ -2,18 +2,20 @@
 @alertbg: #FDD;
 @alertborder: #FFB7B7;
 @border: #EBEBEB;
-@extlink: #1224D4;
-@hilight: #007AFF;
-@newlink: #E9392D;
+@extlink: #1224D4; // Color for external links
+@hilight: #007AFF; // Color used for highlighted tabs and internal links
+@newlink: #E9392D; // If the page linked to doesn't exist...
 @pagebg: #202020;
+@radius: 4px; // Radius for many things, like tables and lots of boxes
 
 // Mix-ins
 .sideless() {
 	border-width:1px 0;
 }
-.whitebox() {
+.whitebox(@rad: 0) {
 	background-color:#FFF;
 	border-color:@border;
+	border-radius:@rad;
 }
 
 // The real deal.
@@ -195,7 +197,7 @@ div#mw-toolbar {
 					background-color:#E3E4E6;
 					background-color:rgba(0, 0, 0, 0.08);
 					border:0;
-					border-radius:4px;
+					border-radius:@radius;
 					display:inline;
 					padding:0 0.25em;
 					text-align:center;
@@ -296,7 +298,7 @@ div.mw-body {
 	input[type="submit"]:active {
 		background-color:#AFAFAF;
 		background-color:rgba(0,0,0,0.27) !important;
-		border-radius:4px;
+		border-radius:@radius;
 		color:#085DBA !important;
 	}
 	a:active {
@@ -312,6 +314,10 @@ div.mw-body {
 	a.image:active {
 		background-color:transparent;
 	}
+	div#catlinks {
+		.whitebox(@rad: @radius);
+		border:0;
+	}
 	// This can use some work, but it's probably not even going to be used.
 	div#localNotice {
 		background-color:#FFD;
@@ -323,9 +329,8 @@ div.mw-body {
 	}
 	// Table of contents.
 	div#toc {
-		background-color:#FFF;
+		.whitebox(@rad: @radius);
 		border:0;
-		border-radius:4px;
 
 		> ul {
 			font-size:0.9em;
@@ -576,7 +581,7 @@ table.diff {
 table.wikitable {
 	background-color:transparent; // This actually makes a difference if you blow up the page by like... 900% or something.
 	border:0;
-	border-radius:4px;
+	border-radius:@radius;
 
 	> tbody > tr {
 		&:first-child {
