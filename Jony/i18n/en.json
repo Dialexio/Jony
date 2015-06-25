@@ -2,6 +2,6 @@
 	"@metadata": {
 		"authors": [ "@Dialexio" ]
 	},
-	"skinname-foobar": "Jony",
-	"foobar-desc": "A MediaWiki skin based on the interface of iOS."
+	"skinname-jony": "Jony",
+	"jony-desc": "A MediaWiki skin based on the interface of iOS."
 }

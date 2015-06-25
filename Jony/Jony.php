@@ -4,7 +4,7 @@
  *
  * @file
  * @ingroup Skins
- * @author Dialexio (https://twitter.com/Dialexio)
+ * @author Dialexio (https://github.com/Dialexio)
  * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU General Public License 2.0
  */
 
@@ -15,12 +15,12 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 $wgExtensionCredits['skin'][] = array(
 	'path' => __FILE__,
 	'name' => 'Jony', // name as shown under [[Special:Version]]
-	'namemsg' => 'skinname-jony', // used since MW 1.24, see the section on "Localisation messages" below
-	'version' => '1.0',
+	'namemsg' => 'skinname-jony',
+	'version' => '1.0.3',
 	'url' => 'https://github.com/Dialexio/Jony',
-	'author' => '[https://twitter.com/Dialexio Dialexio]',
-	'descriptionmsg' => 'jony-desc', // see the section on "Localisation messages" below
-	'license' => 'GPL-2.0+',
+	'author' => '[https://github.com/Dialexio Dialexio]',
+	'descriptionmsg' => 'jony-desc',
+	'license-name' => 'GPLv2',
 );
 
 $wgValidSkinNames['jony'] = 'Jony';
