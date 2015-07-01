@@ -318,8 +318,15 @@ div.mw-body {
 	a.extiw:visited {
 		color:@extlink;
 	}
-	a.image:active {
-		background-color:transparent !important;
+	a.image {
+		&:active {
+			background-color:transparent !important;
+			margin:0;
+			padding:0;
+		}
+		 > img:active {
+			opacity:0.5;
+		}
 	}
 	div#catlinks {
 		.whitebox(@rad: @radius);
