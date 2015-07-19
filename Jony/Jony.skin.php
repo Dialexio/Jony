@@ -77,6 +77,11 @@ class JonyTemplate extends BaseTemplate {
 	 */
 	public function execute() {
 		$this->html( 'headelement' ) ?>
+
+	<?php if ( $this->data['newtalk'] ) { ?>
+		<div id="usermessage" onclick="$(this).slideUp(100);"><?php $this->html( 'newtalk' ) ?></div>
+	<?php } ?>
+
 		<div id="mw-wrapper">
 			<div id="p-logo">
 				<a href="<?php echo htmlspecialchars( $this->data['nav_urls']['mainpage']['href'] ) ?>"
@@ -155,10 +160,6 @@ class JonyTemplate extends BaseTemplate {
 			<div class="mw-body">
 				<?php if ( $this->data['sitenotice'] ) { ?>
 					<div id="siteNotice"><?php $this->html( 'sitenotice' ) ?></div>
-				<?php } ?>
-
-				<?php if ( $this->data['newtalk'] ) { ?>
-					<div class="usermessage"><?php $this->html( 'newtalk' ) ?></div>
 				<?php } ?>
 
 				<h1 class="firstHeading">

@@ -283,18 +283,38 @@ div#p-logo {
 		margin:5px;
 	}
 }
+// We just got a letter! I wonder who it's from?
+div#usermessage {
+	background-color:#000;
+	background-color:rgba(0,0,0,0.85);
+	border-width:0;
+	color:#FFF;
+	font-size:1.15em;
+	font-weight:normal;
+	left:0;
+	margin:0;
+	padding:2em 3em;
+	position:fixed;
+	top:0;
+	vertical-align:middle;
+	width:100%;
+	z-index:200; // We want this on top of *EVERYTHING*
+
+	a {
+		color:#FFF;
+		font-weight:bold;
+		text-decoration:underline;
+
+		&:hover {
+			text-decoration:none;
+		}
+	}
+}
 div.mw-body {
 	background-color:#EFEFF4;
 	margin-left:160px;
 	overflow-x:auto;
 	padding:32px 16px;
-
-	// We just got a letter! I wonder who it's from?
-	> div.usermessage {
-		background-color:#FDD;
-		border:1px solid #F88;
-		.sideless;
-	}
 
 	// Highlight effect on click.
 	a:active,
