@@ -1,6 +1,7 @@
 // Variables
 @alertbg: #FDD;
 @alertborder: #FFB7B7;
+@blur: 5px;
 @border: #EBEBEB;
 @extlink: #1224D4; // Color for external links
 @hilight: #007AFF; // Color used for highlighted tabs and internal links
@@ -11,6 +12,14 @@
 // Mix-ins
 .sideless() {
 	border-width:1px 0;
+}
+.toolbar() {
+	// The RGB values for the hex and alpha values don't match to account for the title bar's translucency.
+		-webkit-backdrop-filter:blur(@blur);
+	background-color:#F5F5F5;
+	background-color:rgba(249,249,249,0.96);
+	border-bottom:1px solid #B2B2B2;
+	border-bottom-color:rgba(178,178,178,0.5);
 }
 .whitebox(@rad: 0) {
 	background-color:#FFF;
@@ -28,8 +37,8 @@ div#content a {
 }
 body {
 	background-color:@pagebg;
-	font-family:-apple-system, "SF UI Text", "SF Compact Text", "San Francisco Text", "Helvetica Neue", Helvetica, sans-serif;
-	font-size:11pt;
+	font-family:-apple-system, "Helvetica Neue", Helvetica, sans-serif;
+	font-size:12pt;
 	margin:0;
 }
 code {
@@ -70,6 +79,9 @@ div#mw-panel {
 	top:160px;
 	width:150px;
 
+	a {
+		font-size:10pt;
+	}
 	a#feed-atom {
 		// Wireframe
 		background-image:url("images/feed-icon.png"), url("images/feed-icon.svg");
@@ -81,19 +93,18 @@ div#mw-panel {
 		background-color:#080808;
 		color:#FFF;
 		font-size:1em;
+		margin-bottom:0;
 		padding:5pt 0 5pt 15px;
 	}
 	ul {
+		line-height:1.2em;
 		list-style:none;
-		margin:0 0 10px 15px;
+		margin:10px 15px;
+		margin-right:0;
 	}
 }
 div#mw-toolbar {
-	// The RGB values for the hex and alpha values don't match to account for the title bar's translucency.
-	background-color:#F5F5F5 !important;
-	background-color:rgba(249,249,249,0.96) !important;
-	border-bottom:1px solid #B2B2B2;
-	border-bottom-color:rgba(178,178,178,0.5);
+	.toolbar;
 	left:0;
 	position:fixed;
 	top:0;
@@ -107,6 +118,53 @@ div#mw-toolbar {
 
 	// Gives that iOS tab appearance.
 	div#mw-tabs {
+		> div#more {
+			background-image:url("images/down.png"), url("images/down.svg");
+			background-position:center;
+			background-repeat:no-repeat;
+			float:left;
+			height:1.45em;
+			margin:18px 0 0 4px;
+			width:1.45em;
+
+			&:hover + div#p-actions {
+				display:inline-block;
+			}
+		}
+		> div#p-actions {
+			display:none;
+			left:-2em;
+			position:relative;
+			top:2em;
+
+			&:hover {
+				display:inline-block;
+			}
+
+			ul {
+				.toolbar;
+				border-radius:@radius;
+				border-width:0;
+				box-shadow:0 0 10px 1px rgba(0,0,0,0.2);
+				float:none;
+
+				> li {
+					border-radius:0;
+					border-width:0;
+					float:none;
+
+					&:active {
+						background-color:rgba(0,0,0,0.15);
+					}
+					&:first-child {
+						border-radius:@radius @radius 0 0;
+					}
+					&:last-child {
+						border-radius:0 0 @radius @radius;
+					}
+				}
+			}
+		}
 		> div.mw-portlet {
 			font-size:10pt;
 			display:inline;
@@ -263,9 +321,11 @@ div#mw-toolbar {
 }
 div#mw-toolbar,
 div#mw-toolbar-spacer {
-	background-color:#EFEFF4;
 	height:80px;
 	margin:0 0 0 160px;
+}
+div#mw-toolbar-spacer {
+	background-color:#EFEFF4;
 }
 div#preferences {
 	clear:both;
@@ -285,21 +345,28 @@ div#p-logo {
 }
 // We just got a letter! I wonder who it's from?
 div#usermessage {
+		-webkit-backdrop-filter:blur(@blur);
 	background-color:#000;
-	background-color:rgba(0,0,0,0.85);
+	background-color:rgba(0,0,0,0.8);
 	border-width:0;
 	color:#FFF;
-	font-size:1.15em;
 	font-weight:normal;
 	left:0;
 	margin:0;
-	padding:2em 3em;
+	padding:1em 1.5em;
 	position:fixed;
 	top:0;
 	vertical-align:middle;
 	width:100%;
 	z-index:200; // We want this on top of *EVERYTHING*
 
+	> h4 {
+		color:#FFF;
+		text-transform:none;
+	}
+	> p {
+		font-size:smaller;
+	}
 	a {
 		color:#FFF;
 		font-weight:bold;
@@ -488,7 +555,7 @@ div.mw-body {
 		}
 	}
 	h1, h2 {
-		font-family:-apple-system, "SF UI Display", "SF Compact Display", "San Francisco Display", "Helvetica Neue", Helvetica, sans-serif;
+		font-family:-apple-system, "Helvetica Neue", Helvetica, sans-serif;
 		font-weight:500;
 	}
 	h3, h4 {
@@ -552,7 +619,7 @@ pre {
 }
 // Safari/WebKit wants this.
 input {
-	font-family:-apple-system, "SF UI Text", "SF Compact Text", "San Francisco Text", "Helvetica Neue", Helvetica, sans-serif;
+	font-family:-apple-system, "Helvetica Neue", Helvetica, sans-serif;
 }
 // Make submit buttons look like that blue, tappable text.
 input[type="submit"] {

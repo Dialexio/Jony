@@ -15,6 +15,11 @@ class SkinJony extends SkinTemplate {
 	public $skinname = 'jony', $stylename = 'Jony',
 		$template = 'JonyTemplate', $useHeadElement = true;
 
+	public function initPage( OutputPage $out ) {
+		parent::initPage( $out );
+		$out->addModules( 'skins.jony.js' );
+	}
+
 	/**
 	 * Add CSS via ResourceLoader
 	 *
@@ -79,7 +84,10 @@ class JonyTemplate extends BaseTemplate {
 		$this->html( 'headelement' ) ?>
 
 	<?php if ( $this->data['newtalk'] ) { ?>
-		<div id="usermessage" onclick="$(this).slideUp(100);"><?php $this->html( 'newtalk' ) ?></div>
+		<div id="usermessage" onclick="$(this).slideUp(100);">
+			<h4><?php $this->html( 'newtalk' ) ?></h4>
+			<p>Clicking this alert will hide it until the next page loads. You must view the message to permanently clear this.</p>
+		</div>
 	<?php } ?>
 
 		<div id="mw-wrapper">
@@ -134,6 +142,9 @@ class JonyTemplate extends BaseTemplate {
 						'headerMessage' => 'views',
 						'content' => $this->data['content_navigation']['views'],
 					) );
+					?>
+					<div id="more"></div>
+					<?php
 					$this->outputPortlet( array(
 						'id' => 'p-actions',
 						'headerMessage' => 'actions',
