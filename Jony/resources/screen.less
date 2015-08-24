@@ -105,6 +105,7 @@ div#mw-panel {
 }
 div#mw-toolbar {
 	.toolbar;
+	font-size:0.95em;
 	left:0;
 	position:fixed;
 	top:0;
@@ -124,7 +125,7 @@ div#mw-toolbar {
 			background-repeat:no-repeat;
 			float:left;
 			height:1.45em;
-			margin:18px 0 0 4px;
+			margin:26px 0 0 4px;
 			width:1.45em;
 
 			&:hover + div#p-actions {
@@ -133,7 +134,7 @@ div#mw-toolbar {
 		}
 		> div#p-actions {
 			display:none;
-			left:-2em;
+			left:-1.85em;
 			position:relative;
 			top:2em;
 
@@ -166,19 +167,18 @@ div#mw-toolbar {
 			}
 		}
 		> div.mw-portlet {
-			font-size:10pt;
 			display:inline;
 
 			/*
 			 * If you update the CSS here, update ul#preftoc too.
 			 * I'm too lazy to figure out how to snippet this.
-			 * (Well, assuming it can be done.)
+			 * (Well, assuming it can be done. Probably can.)
 			 */
 			ul {
 				display:block;
 				float:left;
 				list-style:none;
-				margin:18px 0 0 2%;
+				margin:25px 0 0 2%;
 
 				> li {
 					border:1px solid @hilight;
@@ -244,11 +244,11 @@ div#mw-toolbar {
 		// Search box.
 		form#p-search {
 			float:right;
-			margin:17px 13% 17px 0;
+			margin:24px 13% 17px 0;
 			width:25%;
 
 			input {
-				font-size:10pt;
+				font-size:1em;
 				line-height:1.7em;
 
 				&#searchInput {
@@ -290,8 +290,8 @@ div#mw-toolbar {
 	}
 	// Styled like the iOS status bar
 	div#p-personal {
-		font-size:10pt;
-		height:20px; // Needed for the magical double-click scrolling.
+		font-size:0.95em;
+		height:24px; // Needed for the magical double-click scrolling.
 		padding-top:0;
 		width:87.5%;
 
@@ -321,7 +321,7 @@ div#mw-toolbar {
 }
 div#mw-toolbar,
 div#mw-toolbar-spacer {
-	height:80px;
+	height:100px;
 	margin:0 0 0 160px;
 }
 div#mw-toolbar-spacer {
