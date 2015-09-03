@@ -15,10 +15,12 @@ class SkinJony extends SkinTemplate {
 	public $skinname = 'jony', $stylename = 'Jony',
 		$template = 'JonyTemplate', $useHeadElement = true;
 
+/*
 	public function initPage( OutputPage $out ) {
 		parent::initPage( $out );
 		$out->addModules( 'skins.jony.js' );
 	}
+*/
 
 	/**
 	 * Add CSS via ResourceLoader
@@ -48,6 +50,7 @@ class JonyTemplate extends BaseTemplate {
 		}
 
 		?>
+		<?php if($box['id'] == "p-actions") echo "<div id=\"more\"></div>"; ?>
 		<div
 			class="mw-portlet"
 			id="<?php echo Sanitizer::escapeId( $box['id'] ) ?>"
@@ -142,9 +145,6 @@ class JonyTemplate extends BaseTemplate {
 						'headerMessage' => 'views',
 						'content' => $this->data['content_navigation']['views'],
 					) );
-					?>
-					<div id="more"></div>
-					<?php
 					$this->outputPortlet( array(
 						'id' => 'p-actions',
 						'headerMessage' => 'actions',
