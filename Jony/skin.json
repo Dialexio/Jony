@@ -1,0 +1,34 @@
+{
+	"name": "Jony",
+	"version": "1.0.4",
+	"author": "Dialexio",
+	"url": "https://github.com/Dialexio/Jony",
+	"descriptionmsg": "jony-desc",
+	"namemsg": "skinname-jony",
+	"license-name": "GPL-2.0+",
+	"type": "skin",
+	"ValidSkinNames": {
+		"jony": "Jony"
+	},
+	"ResourceModules": {
+		"skins.jony": {
+			"position" : "top",
+			"styles": {
+				"resources/print.less": {
+					"media": "print"
+				},
+				"resources/screen.less": {
+					"media": "screen"
+				}
+			}
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "",
+		"remoteSkinPath": "Jony"
+	},
+	"AutoloadClasses": {
+		"SkinJony": "Jony.skin.php"
+	},
+	"manifest_version": 1
+}

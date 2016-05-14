@@ -52,6 +52,7 @@ class JonyTemplate extends BaseTemplate {
 		?>
 		<?php if($box['id'] == "p-actions") echo "<div id=\"more\"></div>"; ?>
 		<div
+			role="navigation"
 			class="mw-portlet"
 			id="<?php echo Sanitizer::escapeId( $box['id'] ) ?>"
 			<?php echo Linker::tooltip( $box['id'] ) ?>
