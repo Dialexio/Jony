@@ -50,7 +50,6 @@ class JonyTemplate extends BaseTemplate {
 		}
 
 		?>
-		<?php if($box['id'] == "p-actions") echo "<div id=\"more\"></div>"; ?>
 		<div
 			role="navigation"
 			class="mw-portlet"
@@ -95,7 +94,7 @@ class JonyTemplate extends BaseTemplate {
 	<?php } ?>
 
 		<div id="mw-wrapper">
-			<div id="p-logo">
+			<div id="p-logo" role="banner">
 				<a href="<?php echo htmlspecialchars( $this->data['nav_urls']['mainpage']['href'] ) ?>"
 					<?php echo Xml::expandAttributes( Linker::tooltipAndAccesskeyAttribs( 'p-logo' ) ) ?>
 				>
@@ -169,7 +168,7 @@ class JonyTemplate extends BaseTemplate {
 			<div id="mw-toolbar-spacer">
 			</div>
 
-			<div class="mw-body">
+			<div class="mw-body" role="main">
 				<?php if ( $this->data['sitenotice'] ) { ?>
 					<div id="siteNotice"><?php $this->html( 'sitenotice' ) ?></div>
 				<?php } ?>
@@ -200,7 +199,7 @@ class JonyTemplate extends BaseTemplate {
 			</div>
 
 			<div id="mw-footer">
-				<ul id="contentinfo">
+				<ul role="contentinfo">
 					<?php foreach ( $this->getFooterIcons( 'icononly' ) as $blockName => $footerIcons ) { ?>
 						<li>
 							<?php
