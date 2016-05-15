@@ -10,6 +10,29 @@
 @radius: 4px; // Radius for many things, like tables and lots of boxes
 
 // Mix-ins
+.segments() {
+	border:1px solid @hilight;
+	border-left-width:0;
+	float:left;
+	line-height:1.7em;
+	margin:0;
+	vertical-align:middle;
+
+	&:active {
+		background-color:#7CF;
+		background-color:rgba(130,160,255,0.4);
+	}
+	// Corners
+	&:first-child {
+		border-bottom-left-radius:@radius;
+		border-left-width:1px;
+		border-top-left-radius:@radius;
+	}
+	&:last-child {
+		border-bottom-right-radius:@radius;
+		border-top-right-radius:@radius;
+	}
+}
 .sideless() {
 	border-width:1px 0;
 }
@@ -75,7 +98,7 @@ div#mw-panel {
 	background-color:#363631;
 	margin-left:10px;
 	padding-top:10px;
-	position:fixed;
+	position:absolute;
 	top:160px;
 	width:150px;
 
@@ -172,39 +195,15 @@ div#mw-toolbar {
 		> div.mw-portlet {
 			display:inline;
 
-			/*
-			 * If you update the CSS here, update ul#preftoc too.
-			 * I'm too lazy to figure out how to snippet this.
-			 * (Well, assuming it can be done. Probably can.)
-			 */
 			ul {
 				display:block;
 				float:left;
 				list-style:none;
-				margin:25px 0 0 2%;
+				margin-top:25px;
 
 				> li {
-					border:1px solid @hilight;
-					border-left-width:0;
-					float:left;
-					line-height:1.7em;
-					margin:0;
-					vertical-align:middle;
+					.segments;
 
-					&:active {
-						background-color:#7CF;
-						background-color:rgba(130,160,255,0.4);
-					}
-					// Corners
-					&:first-child {
-						border-bottom-left-radius:4px;
-						border-left-width:1px;
-						border-top-left-radius:4px;
-					}
-					&:last-child {
-						border-bottom-right-radius:4px;
-						border-top-right-radius:4px;
-					}
 					// Point out new pages.
 					&.new {
 						border-color:@newlink !important;
@@ -226,21 +225,21 @@ div#mw-toolbar {
 						display:none;
 
 						&:first-child + li {
-							border-bottom-left-radius:4px;
-							border-top-left-radius:4px;
+							border-bottom-left-radius:@radius;
+							border-top-left-radius:@radius;
 							border-width:1px !important;
 						}
 
 						& + li:last-child {
-							border-bottom-right-radius:4px;
-							border-top-right-radius:4px;
+							border-bottom-right-radius:@radius;
+							border-top-right-radius:@radius;
 							border-width:1px !important;
 						}
 					}
 
 					> a {
 						display:inline;
-						padding:0.2em 0.8em;
+						padding:0.2em 0.5em;
 					}
 					> a:active {
 						color:@hilight;
@@ -251,8 +250,7 @@ div#mw-toolbar {
 		// Search box.
 		form#p-search {
 			float:right;
-			margin:24px 13% 17px 0;
-			width:25%;
+			margin:24px 10% 17px 0;
 
 			input {
 				font-size:1em;
@@ -288,7 +286,7 @@ div#mw-toolbar {
 				&[type="submit"] {
 					color:@hilight;
 
-					&:focus {
+					&:active {
 					opacity:0.4;
 					}
 				}
@@ -339,7 +337,7 @@ div#preferences {
 }
 div#p-logo {
 	background-color:@pagebg;
-	position:fixed;
+	position:absolute;
 
 	&, > a {
 		display:block;
@@ -451,6 +449,75 @@ div.mw-body {
 	}
 	div.successbox {
 		border-color:#0D0;
+	}
+	// Search page. [[Special:Search]]
+	form#powersearch,
+	form#search {
+		font-size:11pt;
+
+		div.mw-search-profile-tabs {
+			background-color:transparent;
+			border:0;
+
+			ul {
+				display:block;
+				float:left;
+				list-style:none;
+				margin-top:25px;
+
+				> li {
+					.segments;
+
+					> a {
+						padding:0 0.25em;
+					}
+					> a:active {
+						background-color:transparent;
+						border-radius:0;
+						margin:0;
+						padding:0 0.25em;
+					}
+				}
+				> li.current {
+					background-color:@hilight;
+
+					> a {
+						color:#FFF;
+					}
+					> a:active {
+						color:#FFF;
+						color:rgba(255, 255, 255, 0.8) !important;
+					}
+					> a:hover {
+						cursor:pointer;
+						text-decoration:underline;
+					}
+				}
+			}
+		}
+		fieldset#mw-searchoptions {
+			border-top-width:1px !important;
+			margin-top:1em;
+		}
+		input#powerSearchText,
+		input#searchText {
+			border-radius:4px;
+			border-width:0;
+			padding:0;
+
+			&:focus {
+				border:0;
+				box-shadow:none;
+			}
+		}
+		input.mw-ui-button {
+			background-color:transparent;
+			border:0;
+			color:@hilight;
+			font-weight:normal;
+			padding:0 0.2em;
+			text-shadow:none;
+		}
 	}
 	// Login form. [[Special:UserLogin]]
 	form.mw-ui-vform {
@@ -782,27 +849,8 @@ ul {
 		margin:18px 0 0 2%;
 
 		> li {
-			border:1px solid @hilight;
-			border-left-width:0;
-			float:left;
-			line-height:1.7em;
-			margin:0;
-			vertical-align:middle;
+			.segments;
 
-			&:active {
-				background-color:#7CF;
-				background-color:rgba(130,160,255,0.4);
-			}
-			// Corners
-			&:first-child {
-				border-bottom-left-radius:@radius;
-				border-left-width:1px;
-				border-top-left-radius:@radius;
-			}
-			&:last-child {
-				border-bottom-right-radius:@radius;
-				border-top-right-radius:@radius;
-			}
 			// Give The Chosen One a highlight
 			&.selected {
 				background-color:@hilight;
@@ -816,14 +864,14 @@ ul {
 
 			> a {
 				display:inline;
-				padding:0.2em 0.8em;
+				padding:0.2em 0.7em;
 
 				// If you don't do this, the preference tabs get that gray highlight on click as well.
 				&:active {
 					background-color:transparent !important;
 					color:@hilight !important;
 					margin:0 !important;
-					padding:0.2em 0.8em !important;
+					padding:0.2em 0.7em !important;
 				}
 				&:focus {
 					outline:0;
