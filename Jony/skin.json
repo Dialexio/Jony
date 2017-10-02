@@ -28,7 +28,8 @@
 		"remoteSkinPath": "Jony"
 	},
 	"AutoloadClasses": {
-		"SkinJony": "Jony.skin.php"
+		"SkinJony": "Jony.skin.php",
+		"JonyTemplate": "JonyTemplate.php"
 	},
 	"manifest_version": 1
 }

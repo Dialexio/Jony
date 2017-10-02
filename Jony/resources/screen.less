@@ -25,7 +25,7 @@
 	// Corners
 	&:first-child {
 		border-bottom-left-radius:@radius;
-		border-left-width:1px;
+		border-width:1px;
 		border-top-left-radius:@radius;
 	}
 	&:last-child {
@@ -38,9 +38,9 @@
 }
 .toolbar() {
 	// The RGB values for the hex and alpha values don't match to account for the title bar's translucency.
-		-webkit-backdrop-filter:blur(@blur);
+	-webkit-backdrop-filter:blur(@blur);
 	background-color:#F5F5F5;
-	background-color:rgba(249,249,249,0.96);
+	background-color:rgba(249,249,249,0.9);
 	border-bottom:1px solid #B2B2B2;
 	border-bottom-color:rgba(178,178,178,0.5);
 }
@@ -68,9 +68,10 @@ code {
 	.whitebox;
 	padding:0 2px;
 }
-div#content a.new,
-div#content a.new:visited {
-	color:@newlink;
+div#content a.new {
+	&, &:active, &:visited {
+		color:@newlink !important;		
+	}
 }
 div#mw-footer {
 	color:#FFF;
@@ -81,7 +82,7 @@ div#mw-footer {
 		list-style:none;
 		margin-left:0;
 
-		&.footer-privacy {
+		&#footer-places {
 			clear:left;
 
 			> li {
@@ -89,16 +90,17 @@ div#mw-footer {
 				padding-right:0.5em;
 			}
 		}
-		&[role="contentinfo"] {
+		&#footer-icons {
 			float:right;
 		}
 	}
 }
 div#mw-panel {
 	background-color:#363631;
+	display:block;
 	margin-left:10px;
-	padding-top:10px;
-	position:absolute;
+	padding:10px 0;
+	position:fixed;
 	top:160px;
 	width:150px;
 
@@ -111,6 +113,11 @@ div#mw-panel {
 
 		// Looks more like an icon from Settings.
 		background-image:url("images/feed-icon-alt.png"), url("images/feed-icon-alt.svg");
+	}
+	div#site-navigation {
+		background-color:#363631;
+		margin-left:10px;
+		padding:10px 0;
 	}
 	h3 {
 		background-color:#080808;
@@ -129,6 +136,7 @@ div#mw-panel {
 div#mw-toolbar {
 	.toolbar;
 	font-size:0.95em;
+	height:80px;
 	left:0;
 	position:fixed;
 	top:0;
@@ -142,6 +150,7 @@ div#mw-toolbar {
 
 	// Gives that iOS tab appearance.
 	div#mw-tabs {
+		font-size:10pt;
 		/*
 		> div#more {
 			background-image:url("images/down.png"), url("images/down.svg");
@@ -192,7 +201,7 @@ div#mw-toolbar {
 			}
 		}
 		*/
-		> div.mw-portlet {
+		div.mw-portlet {
 			display:inline;
 
 			ul {
@@ -204,9 +213,9 @@ div#mw-toolbar {
 				> li {
 					.segments;
 
-					// Point out new pages.
 					&.new {
 						border-color:@newlink !important;
+						border-width:1px !important;
 
 						&:active {
 							background-color:#F8EBEA;
@@ -217,23 +226,17 @@ div#mw-toolbar {
 						}
 
 						> a,
-						>a:active {
+						> a:active {
 							color:#E02342 !important;
 						}
 					}
+
 					&.selected {
-						display:none;
-
-						&:first-child + li {
-							border-bottom-left-radius:@radius;
-							border-top-left-radius:@radius;
-							border-width:1px !important;
-						}
-
-						& + li:last-child {
-							border-bottom-right-radius:@radius;
-							border-top-right-radius:@radius;
-							border-width:1px !important;
+						background-color:@hilight;
+						
+						> a,
+						> a:active {
+							color:#FFF !important;
 						}
 					}
 
@@ -251,6 +254,7 @@ div#mw-toolbar {
 		form#p-search {
 			float:right;
 			margin:24px 11% 17px 0;
+			width:25%;
 
 			input {
 				font-size:1em;
@@ -296,7 +300,7 @@ div#mw-toolbar {
 	}
 	// Styled like the iOS status bar
 	div#p-personal {
-		font-size:0.95em;
+		font-size:10pt;
 		height:24px; // Needed for the magical double-click scrolling.
 		padding-top:0;
 		width:87.5%;
@@ -333,23 +337,27 @@ div#mw-toolbar-spacer {
 div#mw-toolbar-spacer {
 	background-color:#EFEFF4;
 }
-div#preferences {
-	clear:both;
+div#mw-wrapper {
+	> h2 {
+		display:none;
+	}
 }
 div#p-logo {
 	background-color:@pagebg;
-	position:absolute;
+	margin:12.5px;
+	position:fixed;
 
-	&, > a {
+	&, > a.mw-wiki-logo {
 		display:block;
-		height:160px;
-		width:160px;
-	}
-	> a > img {
 		height:135px;
-		margin:12.5px;
 		width:135px;
 	}
+	> a#p-banner {
+		display:none;
+	}
+}
+div#preferences {
+	clear:both;
 }
 // We just got a letter! I wonder who it's from?
 div#usermessage {
