@@ -7,7 +7,7 @@
 @hilight: #007AFF; // Color used for highlighted tabs and internal links
 @newlink: #E9392D; // If the page linked to doesn't exist...
 @pagebg: #202020;
-@radius: 4px; // Radius for many things, like tables and lots of boxes
+@radius: 5px; // Radius for many things, like tables and lots of boxes
 
 // Mix-ins
 .segments() {
@@ -460,6 +460,21 @@ div.mw-body {
 	div.successbox {
 		border-color:#0D0;
 	}
+	form {
+		// Checkbox
+		.oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type='checkbox']:checked + span {
+			background-color:@hilight;
+			border-color:@hilight;
+		}
+
+		// Button
+		.oo-ui-buttonElement-framed.oo-ui-widget-enabled > .oo-ui-buttonElement-button,
+		.oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-constructive > .oo-ui-buttonElement-button {
+			background-color:transparent;
+			border:0;
+			color:@hilight;
+		}
+	}
 	// Search page. [[Special:Search]]
 	form#powersearch,
 	form#search {
@@ -564,6 +579,12 @@ div.mw-body {
 			.sideless;
 			width:100%;
 		}
+		div.htmlform-tip {
+			margin: 0 0 15px;
+		}
+		div.mw-htmlform-field-HTMLInfoField {
+			width:50%;
+		}
 		div.mw-ui-vform-field > div.mw-input {
 			margin-right:1em;
 		}
@@ -592,6 +613,7 @@ div.mw-body {
 				height:100%;
 				line-height:2em;
 				margin-top:0;
+				max-width:none;
 				padding:0;
 				padding-left:1em;
 				text-align:left;
@@ -605,14 +627,6 @@ div.mw-body {
 
 				&:hover {
 					background-color:#FFF;
-				}
-			}
-			// The checkbox.
-			&.mw-ui-checkbox {
-				height:2em;
-
-				> label {
-					padding-left:2em !important;
 				}
 			}
 			// The text boxes.
@@ -630,9 +644,6 @@ div.mw-body {
 					box-shadow:none;
 					color:#000;
 				}
-			}
-			&[type="checkbox"]:focus + label::after {
-				display:none !important;
 			}
 		}
 
