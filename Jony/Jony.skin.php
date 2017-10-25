@@ -15,7 +15,7 @@ class SkinJony extends SkinTemplate {
 	 */
 	public function initPage( OutputPage $out ) {
 
-		$out->addMeta( 'viewport', 'width=device-width, initial-scale=1.0' );
+		$out->addMeta( 'viewport', 'width=device-width, min-width=800, initial-scale=0.5');
 
 		$out->addModuleStyles( array(
 			'mediawiki.skinning.interface',
