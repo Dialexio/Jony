@@ -71,11 +71,6 @@ code {
 	.whitebox;
 	padding:0 2px;
 }
-div#content a.new {
-	&, &:active, &:visited {
-		color:@newlink !important;		
-	}
-}
 div#mw-footer {
 	color:#FFF;
 	margin-left:160px;
@@ -352,13 +347,6 @@ div.mw-body {
 	padding:32px 16px;
 
 	// Highlight effect on click.
-	a:active,
-	input[type="submit"]:active {
-		background-color:#AFAFAF !important;
-		background-color:rgba(0,0,0,0.27) !important;
-		border-radius:@radius;
-		color:#085DBA !important;
-	}
 	a:active {
 		margin:-0.25em -3px -0.25em -3px;
 		padding:0.25em 3px 0.25em 3px;
@@ -366,6 +354,13 @@ div.mw-body {
 		&:focus {
 			outline-style:none;
 		}
+	}
+	a:active,
+	input[type="submit"]:active {
+		background-color:#AFAFAF !important;
+		background-color:rgba(0,0,0,0.27) !important;
+		border-radius:@radius;
+		color:#085DBA;
 	}
 	a.external,
 	a.external:visited,
@@ -375,6 +370,7 @@ div.mw-body {
 
 		&:active {
 			background-position:center right 3px;
+			color:@extlink;
 			padding-right:18px;
 		}
 	}
@@ -386,6 +382,14 @@ div.mw-body {
 		}
 		 > img:active {
 			opacity:0.5;
+		}
+	}
+	a.new {
+		&, &:visited {
+			color:@newlink !important;		
+		}
+		&:active {
+			color:darken(@newlink, 20%) !important;
 		}
 	}
 	div#catlinks {
