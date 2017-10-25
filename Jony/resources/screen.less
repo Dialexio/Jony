@@ -1,6 +1,6 @@
 // Variables
-@alertbg: #FDD;
-@alertborder: #FFB7B7;
+@alertbg: #FCC;
+@alertborder: darken(@alertbg, 10%);
 @blur: 5px;
 @border: #EBEBEB;
 @extlink: #1224D4; // Color for external links
@@ -734,19 +734,18 @@ pre {
 // Comparing revisions
 table.diff {
 	td.diff-addedline {
-		background-color:#CFC;
-		border-color:#A4EAA4;
+		background-color:#DEF;
 
 		ins.diffchange {
-			background-color:#A4EAA4;
+			background-color:#A3D3FF;
 		}
 	}
 	td.diff-deletedline {
-		background-color:@alertbg;
-		border-color:@alertborder;
+		background-color:#FFC2C2;
+		border-color:darken(#FFC2C2, 10%);
 
 		del.diffchange {
-			background-color:@alertborder;
+			background-color:darken(#FFC2C2, 10%);
 		}
 	}
 }
