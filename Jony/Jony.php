@@ -21,7 +21,7 @@ else {
 		'path' => __FILE__,
 		'name' => 'Jony', // name as shown under [[Special:Version]]
 		'namemsg' => 'skinname-jony',
-		'version' => '1.0.6',
+		'version' => '1.0.7',
 		'url' => 'https://github.com/Dialexio/Jony',
 		'author' => '[https://github.com/Dialexio Dialexio]',
 		'descriptionmsg' => 'jony-desc',
