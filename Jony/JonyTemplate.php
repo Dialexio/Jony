@@ -285,8 +285,7 @@ class JonyTemplate extends BaseTemplate {
 		$sidebar = $this->getSidebar();
 
 		$sidebar['SEARCH'] = false;
-		$sidebar['TOOLBOX'] = true;
-		$sidebar['LANGUAGES'] = true;
+		$sidebar['LANGUAGES'] = false;
 
 		foreach ( $sidebar as $boxName => $box ) {
 			if ( $boxName === false ) {
