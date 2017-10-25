@@ -3,8 +3,8 @@
 	"version": "1.0.6",
 	"author": "Dialexio",
 	"url": "https://github.com/Dialexio/Jony",
-	"descriptionmsg": "jony-desc",
-	"namemsg": "skinname-jony",
+	"descriptionmsg": "Based on the aesthetic of recent versions of iOS.",
+	"namemsg": "Jony",
 	"license-name": "GPL-2.0+",
 	"type": "skin",
 	"ValidSkinNames": {
