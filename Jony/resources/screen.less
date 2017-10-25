@@ -61,12 +61,11 @@ div#content a {
 body {
     -webkit-text-size-adjust: none;
 	background-color:@pagebg;
-	font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
 	font-size:12pt;
 	margin:0;
 }
-#mw-body-content {
-    -webkit-text-size-adjust: auto;
+body, input {
+	font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
 }
 code {
 	.whitebox;
@@ -364,9 +363,10 @@ div.mw-body {
 	a:active {
 		margin:-0.25em -3px -0.25em -3px;
 		padding:0.25em 3px 0.25em 3px;
-	}
-	a:active:focus {
-		outline-style:none;
+
+		&:focus {
+			outline-style:none;
+		}
 	}
 	a.external,
 	a.external:visited,
@@ -411,6 +411,9 @@ div.mw-body {
 		background-color:#FFF;
 		border:1px solid @border;
 		margin:1em 0;
+	}
+	div.mw-body-content {
+		-webkit-text-size-adjust: auto;
 	}
 	div.successbox {
 		border-color:#0D0;
@@ -676,10 +679,6 @@ fieldset.rcoptions {
 	> form {
 		font-size:10pt;
 	}
-}
-// Safari/WebKit wants this.
-input {
-	font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
 }
 // Make submit buttons look like that blue, tappable text.
 input[type="submit"] {
