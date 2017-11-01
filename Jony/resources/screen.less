@@ -422,6 +422,11 @@ div.mw-body {
 	div#userloginForm {
 		margin-right:0;
 		width:100%;
+
+		label {
+			color:#7C7C81;
+			text-transform:uppercase;
+		}
 	}
 	// [[Special:UserPreferences]]
 	div.editOptions {
@@ -523,6 +528,10 @@ div.mw-body {
 	form.mw-ui-vform {
 		width:100%;
 
+		// "Log in" button
+		button.mw-ui-button {
+			max-width:none !important;
+		}
 		// "Create another account" link
 		> div#mw-createaccount-another > a {
 			background-color:transparent;
@@ -557,11 +566,9 @@ div.mw-body {
 		div.htmlform-tip {
 			margin: 0 0 15px;
 		}
-		div.mw-htmlform-field-HTMLInfoField {
-			width:50%;
-		}
-		div.mw-ui-vform-field > div.mw-input {
-			margin-right:1em;
+		div.mw-ui-vform-field > div.mw-input:not(.mw-htmlform-nolabel) {
+			margin:0 -1em;
+			padding:0.5em 0;
 		}
 		// Warning for already being logged in
 		div.warningbox {
@@ -579,31 +586,6 @@ div.mw-body {
 			font-size:11pt;
 			padding-top:1px;
 
-			//The login button.
-			&.mw-ui-button {
-				border-radius:6px;
-				border-width:0;
-				color:@hilight;
-				font-weight:normal;
-				height:100%;
-				line-height:2em;
-				margin-top:0;
-				max-width:none;
-				padding:0;
-				padding-left:1em;
-				text-align:left;
-				text-transform:capitalize;
-				vertical-align:middle;
-
-				&:focus, &:hover {
-					background-image:none;
-					box-shadow:none;
-				}
-
-				&:hover {
-					background-color:#FFF;
-				}
-			}
 			// The text boxes.
 			&.mw-ui-input {
 			//	background:url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjE0cHgiIHdpZHRoPSIxNHB4IiB2ZXJzaW9uPSIxLjEiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMTQgMTQiPgogPGcgaWQ9IlBhZ2UtMSIgZmlsbC1ydWxlPSJldmVub2RkIiBmaWxsPSIjQkJCQUMxIj4KICA8cGF0aCBpZD0iUmVjdGFuZ2xlLTEiIGQ9Im03LjEzNiAwLjYzNjA0bDYuMzY0IDYuMzY0LTEuNzY4IDEuNzY3OC02LjM2MzctNi4zNjQgMS43Njc3LTEuNzY3OHYwLjAwMDA0eiIvPgogIDxwYXRoIGlkPSJSZWN0YW5nbGUtMS1Db3B5IiBkPSJtNy4xMzYgMTMuMzY0bDYuMzY0LTYuMzY0LTEuNzY4LTEuNzY3OC02LjM2MzcgNi4zNjM4IDEuNzY3NyAxLjc2OHoiLz4KIDwvZz4KPC9zdmc+Cg==") no-repeat fixed; // Chevron
