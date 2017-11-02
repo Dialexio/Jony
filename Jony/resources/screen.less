@@ -34,7 +34,7 @@
 	}
 }
 .sideless() {
-	border-width:1px 0;
+	border-width:1px 0 !important;
 }
 .toolbar() {
 	// The RGB values for the hex and alpha values don't match to account for the title bar's translucency.
@@ -524,8 +524,10 @@ div.mw-body {
 			text-shadow:none;
 		}
 	}
-	// Login form. [[Special:UserLogin]]
-	form.mw-ui-vform {
+	// Login form [[Special:UserLogin]]
+	// Login form [[Special:PasswordReset]]
+	form.mw-ui-vform,
+	form.oo-ui-layout {
 		width:100%;
 
 		// "Log in" button
@@ -542,24 +544,34 @@ div.mw-body {
 		div.htmlform-tip {
 			margin: 0 0 15px;
 		}
-		div.mw-htmlform-field-HTMLSubmitField {
+		div.mw-htmlform-field-HTMLSubmitField,
+		div.mw-htmlform-submit-buttons {
 			> div {
 				margin:0 -16px;
 
+				&.oo-ui-buttonElement {
+					display:block;
+				}
+
 				> button {
-					background-color:#FFF;
-					border:1px solid #E3E3E3;
+					background-color:#FFF !important;
+					border:1px solid #E3E3E3 !important;
+					.sideless;
 					border-radius:0;
-					border-width:1px 0;
-					color:@hilight;
+					color:@hilight !important;
 					font-weight:normal;
 					text-align:left;
 					text-shadow:none;
 
+					&.oo-ui-inputWidget-input {
+						width:100%;
+					}
+
 					&:active {
-						background-color:#D9D9D9;
+						background-color:#D9D9D9 !important;
 					}
 				}
+				
 			}
 		}
 		div.mw-ui-vform-field > div.mw-input {
