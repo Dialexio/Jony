@@ -3,5 +3,5 @@
 		"authors": [ "@Dialexio" ]
 	},
 	"skinname-jony": "Jony",
-	"jony-desc": "A MediaWiki skin based on the interface of iOS."
+	"jony-skin-desc": "A MediaWiki skin based on the UI of recent versions of iOS."
 }

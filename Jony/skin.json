@@ -1,14 +1,26 @@
 {
 	"name": "Jony",
+	"author": [
+		"Dialexio",
+		"iAdam1n",
+		"..."
+	],
 	"version": "1.0.7",
-	"author": ["Dialexio", "others"],
 	"url": "https://github.com/Dialexio/Jony",
-	"descriptionmsg": "Based on the aesthetic of recent versions of iOS.",
-	"namemsg": "Jony",
+	"descriptionmsg": "jony-skin-desc",
+	"namemsg": "skinname-jony",
 	"license-name": "GPL-2.0+",
 	"type": "skin",
+	"requires": {
+		"MediaWiki": ">= 1.26.0"
+	},
 	"ValidSkinNames": {
 		"jony": "Jony"
+	},
+	"MessagesDirs": {
+		"Jony": [
+			"i18n"
+		]
 	},
 	"ResourceModules": {
 		"skins.jony": {
