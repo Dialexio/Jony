@@ -610,6 +610,14 @@ div.mw-body {
 	}
 	h1, h2 {
 		font-weight:500;
+
+		&.firstHeading {
+			color:#111;
+			font-weight:bold;
+			margin:0;
+			padding:0;
+			text-transform:none;
+		}
 	}
 	h3, h4 {
 		font-weight:normal;
@@ -687,9 +695,6 @@ input[type="submit"] {
 	&:focus {
 		outline:0;
 	}
-}
-h1.firstHeading {
-	padding:0;
 }
 h1, h2, h3, h4, h5, h6,
 legend {
