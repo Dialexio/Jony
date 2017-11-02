@@ -372,6 +372,12 @@ div.mw-body {
 		border-radius:@radius;
 		color:#085DBA;
 	}
+	.plainlinks {
+		a:active {
+			padding:3px !important;
+		}
+	}
+	// Make sure the icon for external links doesn't interfere.
 	a.external,
 	a.external:visited,
 	a.extiw,
@@ -405,15 +411,6 @@ div.mw-body {
 	div#catlinks {
 		.whitebox(@rad: @radius);
 		border:0;
-	}
-	// This can use some work, but it's probably not even going to be used.
-	div#localNotice {
-		background-color:#FFD;
-		border:1px solid #DD0;
-		.sideless;
-		font-size:0.9em;
-		font-weight:bold;
-		padding:0.25em 0.5em;
 	}
 	// Table of contents.
 	div#toc {
