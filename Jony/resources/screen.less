@@ -52,14 +52,14 @@
 
 // The real deal.
 * {
-    -webkit-font-smoothing:subpixel-antialiased; // Needed for Safari.
+	-webkit-font-smoothing:subpixel-antialiased; // Needed for Safari.
 }
 a, a:active, a:visited,
 div#content a {
 	color:@hilight;
 }
 body {
-    -webkit-text-size-adjust: none;
+	-webkit-text-size-adjust: none;
 	background-color:@pagebg;
 	font-size:12pt;
 	margin:0;
@@ -876,21 +876,20 @@ ul {
 }
 
 /* Mobile fixes by iAdam1n */
-@media only screen and (max-device-width: 600px) {
+@media only screen and (max-device-width:600px) {
 	#searchInput {
-		max-width: 120px;
-    }
-    
-    #pt-userpage, #pt-mytalk, #pt-preferences, #pt-watchlist, #pt-mycontris, #pt-logout {
-        font-size: 1.1em;
-        
+		max-width:120px;
 	}
-    
-    #mw-panel {
-         font-size: 1.05em;
-   }
-    
-   .mw-label.mw-namespace-label label, .mw-specialpage-summary {
-		font-size: 1.3em;
-    }
+ 
+	#pt-userpage, #pt-mytalk, #pt-preferences, #pt-watchlist, #pt-mycontris, #pt-logout {
+		font-size:1.1em;
+	}
+ 
+	#mw-panel {
+		font-size:1.05em;
+	}
+ 
+	.mw-label.mw-namespace-label label, .mw-specialpage-summary {
+		font-size:1.3em;
+	}
 }
