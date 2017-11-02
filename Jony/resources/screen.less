@@ -441,19 +441,14 @@ div.mw-body {
 	div.successbox {
 		border-color:#0D0;
 	}
-	form {
-		// Checkbox
-		.oo-ui-checkboxInputWidget.oo-ui-widget-enabled [type='checkbox']:checked + span {
-			background-color:@hilight;
-			border-color:@hilight;
-		}
-
-		// Button
-		.oo-ui-buttonElement-framed.oo-ui-widget-enabled > .oo-ui-buttonElement-button,
-		.oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-constructive > .oo-ui-buttonElement-button {
+	// Reset password [[Special:PasswordReset]]
+	form.oo-ui-layout {
+		fieldset {
 			background-color:transparent;
-			border:0;
-			color:@hilight;
+
+			& > legend {
+				display:none;
+			}
 		}
 	}
 	// Search page. [[Special:Search]]
@@ -533,30 +528,6 @@ div.mw-body {
 		button.mw-ui-button {
 			max-width:none !important;
 		}
-		// "Create another account" link
-		> div#mw-createaccount-another > a {
-			background-color:transparent;
-			border-width:0;
-			color:@hilight;
-			margin-left:0;
-			padding:0;
-
-			&:active {
-				margin:-0.25em -3px -0.25em -3px;
-				padding:0.25em 3px 0.25em 3px;
-			}
-			&:focus, &:hover {
-				box-shadow:none;
-			}
-		}
-		// "Help with logging in" link
-		> div#mw-userlogin-help {
-			height:2em;
-			margin:0;
-			margin-top:1em;
-			vertical-align:middle;
-		}
-
 		// Error for wrong user/password
 		div.errorbox {
 			background-color:@alertbg;
@@ -567,9 +538,31 @@ div.mw-body {
 		div.htmlform-tip {
 			margin: 0 0 15px;
 		}
-		div.mw-ui-vform-field > div.mw-input:not(.mw-htmlform-nolabel) {
-			margin:0 -1em;
-			padding:0.5em 0;
+		div.mw-htmlform-field-HTMLSubmitField {
+			> div {
+				margin:0 -16px;
+
+				> button {
+					background-color:#FFF;
+					border:1px solid #E3E3E3;
+					border-radius:0;
+					border-width:1px 0;
+					color:@hilight;
+					font-weight:normal;
+					text-align:left;
+					text-shadow:none;
+
+					&:active {
+						background-color:#D9D9D9;
+					}
+				}
+			}
+		}
+		div.mw-ui-vform-field > div.mw-input {
+			&:not(.mw-htmlform-nolabel) {
+				margin:0 -16px;
+				padding:0.5em 0;
+			}
 		}
 		// Warning for already being logged in
 		div.warningbox {
@@ -594,7 +587,7 @@ div.mw-body {
 				height:2em;
 				margin-bottom:1em;
 				padding:0;
-				padding-left:16px;
+				padding:1.25em 16px;
 				width:100%;
 
 				&:focus {
