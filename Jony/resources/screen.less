@@ -105,7 +105,7 @@ div#mw-panel {
 	background-color:#363631;
 	border-radius:@radius 0 0 @radius;
 	display:block;
-	margin-left:10px;
+	margin-left:0px;
 	padding:10px 0;
 	position:fixed;
 	top:160px;
@@ -131,7 +131,7 @@ div#mw-panel {
 		color:#FFF;
 		font-size:1em;
 		margin-bottom:0;
-		padding:5pt 0 5pt 15px;
+		padding:5pt 0 5pt 9px;
 	}
 	ul {
 		line-height:1.2em;
@@ -289,7 +289,7 @@ div#mw-toolbar {
 div#mw-toolbar,
 div#mw-toolbar-spacer {
 	height:100px;
-	margin:0 0 0 170px;
+	margin:0 0 0 160px;
 }
 div#mw-toolbar-spacer {
 	background-color:#EFEFF4;
@@ -301,7 +301,7 @@ div#mw-wrapper {
 }
 div#p-logo {
 	background-color:@pagebg;
-	padding:17.5px;
+	padding:12.5px;
 	position:fixed;
 
 	&, > a.mw-wiki-logo {
@@ -352,7 +352,7 @@ div#usermessage {
 }
 div.mw-body {
 	background-color:#EFEFF4;
-	margin-left:170px;
+	margin-left:160px;
 	overflow-x:auto;
 	padding:32px 16px;
 
@@ -426,6 +426,13 @@ div.mw-body {
 			color:#7C7C81;
 			text-transform:uppercase;
 		}
+	}
+	.mw-ui-checkbox:not( #noop ) input[type='checkbox'] {
+		opacity: 1;
+		width: 1.1em;
+	}
+	.mw-ui-checkbox:not( #noop ) input[type='checkbox'] + label:before {
+		display: none;
 	}
 	// [[Special:UserPreferences]]
 	div.editOptions {
