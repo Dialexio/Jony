@@ -427,6 +427,13 @@ div.mw-body {
 			text-transform:uppercase;
 		}
 	}
+	.mw-ui-checkbox:not( #noop ) input[type='checkbox'] {
+		opacity: 1;
+		width: 1.1em;
+	}
+	.mw-ui-checkbox:not( #noop ) input[type='checkbox'] + label:before {
+		display: none;
+	}
 	// [[Special:UserPreferences]]
 	div.editOptions {
 		background-color:#FFF;
