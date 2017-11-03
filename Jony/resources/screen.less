@@ -732,18 +732,18 @@ pre {
 // Comparing revisions
 table.diff {
 	td.diff-addedline {
-		background-color:#DEF;
+		background-color:lighten(#A3D3FF, 10%);
 
-		ins.diffchange {
+		.diffchange {
 			background-color:#A3D3FF;
 		}
 	}
 	td.diff-deletedline {
-		background-color:#FFC2C2;
-		border-color:darken(#FFC2C2, 10%);
+		background-color:lighten(#FF8F8F, 10%);
+		border-color:#FF8F8F;
 
-		del.diffchange {
-			background-color:darken(#FFC2C2, 10%);
+		.diffchange {
+			background-color:#FF8F8F;
 		}
 	}
 }
@@ -809,6 +809,7 @@ table.wikitable {
 }
 ul {
 	line-height:1.35em;
+	list-style-type:disc;
 
 	&#filetoc {
 		.sideless;
