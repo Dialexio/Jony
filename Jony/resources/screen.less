@@ -3,6 +3,8 @@
 @alertborder: darken(@alertbg, 10%);
 @blur: 5px;
 @border: #EBEBEB;
+@diffadd: #A3D3FF; // Color used to highlight added lines (when comparing revisions)
+@diffdel: #FF8F8F; // Color used to highlight deleted lines (when comparing revisions)
 @extlink: #1224D4; // Color for external links
 @hilight: #007AFF; // Color used for highlighted tabs and internal links
 @newlink: #E9392D; // If the page linked to doesn't exist...
@@ -754,18 +756,18 @@ pre {
 // Comparing revisions
 table.diff {
 	td.diff-addedline {
-		background-color:lighten(#A3D3FF, 10%);
+		background-color:lighten(@diffadd, 10%);
 
 		.diffchange {
-			background-color:#A3D3FF;
+			background-color:@diffadd;
 		}
 	}
 	td.diff-deletedline {
-		background-color:lighten(#FF8F8F, 10%);
-		border-color:#FF8F8F;
+		background-color:lighten(@diffdel, 10%);
+		border-color:@diffdel;
 
 		.diffchange {
-			background-color:#FF8F8F;
+			background-color:@diffdel;
 		}
 	}
 }
