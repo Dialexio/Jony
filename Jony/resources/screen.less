@@ -422,13 +422,14 @@ div.mw-body {
 			text-transform:uppercase;
 		}
 	}
-	.mw-ui-checkbox:not( #noop ) input[type='checkbox'] {
-		opacity: 1;
-		width: auto;
-		height: auto;
+	.mw-ui-checkbox:not(#noop) input[type="checkbox"] {
+		height:auto;
+		opacity:1;
+		position:relative; // Fixes Safari's bouncing checkbox.
+		width:auto;
 	}
-	.mw-ui-checkbox:not( #noop ) input[type='checkbox'] + label:before {
-		display: none;
+	.mw-ui-checkbox:not(#noop) input[type="checkbox"] + label:before {
+		display:none;
 	}
 	// [[Special:UserPreferences]]
 	div.editOptions {
