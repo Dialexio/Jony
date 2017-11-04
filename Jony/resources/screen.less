@@ -289,9 +289,7 @@ div#mw-toolbar {
 div#mw-toolbar,
 div#mw-toolbar-spacer {
 	height:100px;
-	margin:0 0 0 160px;
-}
-div#mw-toolbar-spacer {
+	margin:0 0 0 160.3px;
 	background-color:#EFEFF4;
 }
 div#mw-wrapper {
@@ -429,7 +427,8 @@ div.mw-body {
 	}
 	.mw-ui-checkbox:not( #noop ) input[type='checkbox'] {
 		opacity: 1;
-		width: 1.1em;
+		width: auto;
+		height: auto;
 	}
 	.mw-ui-checkbox:not( #noop ) input[type='checkbox'] + label:before {
 		display: none;
@@ -458,6 +457,20 @@ div.mw-body {
 				display:none;
 			}
 		}
+	}
+	.oo-ui-textInputWidget {
+		max-width: none;
+	}
+	.oo-ui-fieldsetLayout-group {
+		margin:0 -14px;
+		padding:0.5em 0;
+	}
+	.oo-ui-labelElement-label {
+		margin-left: 20px;
+	}
+	.oo-ui-widget.oo-ui-widget-enabled.oo-ui-labelElement-label.oo-ui-labelElement.oo-ui-labelWidget {
+		position: relative;
+		top:-10px
 	}
 	// Search page. [[Special:Search]]
 	form#powersearch,
@@ -551,7 +564,7 @@ div.mw-body {
 		div.mw-htmlform-field-HTMLSubmitField,
 		div.mw-htmlform-submit-buttons {
 			> div {
-				margin:0 -16px;
+				margin:0 -14px;
 
 				&.oo-ui-buttonElement {
 					display:block;
@@ -580,7 +593,7 @@ div.mw-body {
 		}
 		div.mw-ui-vform-field > div.mw-input {
 			&:not(.mw-htmlform-nolabel) {
-				margin:0 -16px;
+				margin:0 -14px;
 				padding:0.5em 0;
 			}
 		}
@@ -739,18 +752,18 @@ pre {
 // Comparing revisions
 table.diff {
 	td.diff-addedline {
-		background-color:#DEF;
+		background-color:lighten(#A3D3FF, 10%);
 
-		ins.diffchange {
+		.diffchange {
 			background-color:#A3D3FF;
 		}
 	}
 	td.diff-deletedline {
-		background-color:#FFC2C2;
-		border-color:darken(#FFC2C2, 10%);
+		background-color:lighten(#FF8F8F, 10%);
+		border-color:#FF8F8F;
 
-		del.diffchange {
-			background-color:darken(#FFC2C2, 10%);
+		.diffchange {
+			background-color:#FF8F8F;
 		}
 	}
 }
@@ -816,6 +829,7 @@ table.wikitable {
 }
 ul {
 	line-height:1.35em;
+	list-style-type:disc;
 
 	&#filetoc {
 		.sideless;
