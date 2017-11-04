@@ -289,7 +289,7 @@ div#mw-toolbar {
 div#mw-toolbar,
 div#mw-toolbar-spacer {
 	height:100px;
-	margin:0 0 0 160px;
+	margin:0 0 0 160.3px;
 }
 div#mw-toolbar-spacer {
 	background-color:#EFEFF4;
@@ -460,6 +460,20 @@ div.mw-body {
 			}
 		}
 	}
+	.oo-ui-textInputWidget {
+		max-width: none;
+	}
+	.oo-ui-fieldsetLayout-group {
+		margin:0 -14px;
+		padding:0.5em 0;
+	}
+	.oo-ui-labelElement-label {
+		margin-left: 20px;
+	}
+	.oo-ui-widget.oo-ui-widget-enabled.oo-ui-labelElement-label.oo-ui-labelElement.oo-ui-labelWidget {
+		position: relative;
+		top:-10px
+	}
 	// Search page. [[Special:Search]]
 	form#powersearch,
 	form#search {
@@ -552,7 +566,7 @@ div.mw-body {
 		div.mw-htmlform-field-HTMLSubmitField,
 		div.mw-htmlform-submit-buttons {
 			> div {
-				margin:0 -16px;
+				margin:0 -14px;
 
 				&.oo-ui-buttonElement {
 					display:block;
@@ -581,7 +595,7 @@ div.mw-body {
 		}
 		div.mw-ui-vform-field > div.mw-input {
 			&:not(.mw-htmlform-nolabel) {
-				margin:0 -16px;
+				margin:0 -14px;
 				padding:0.5em 0;
 			}
 		}
