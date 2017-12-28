@@ -427,6 +427,7 @@ div.mw-body {
 		opacity:1;
 		position:relative; // Fixes Safari's bouncing checkbox.
 		width:auto;
+		margin-top: -4px;
 	}
 	.mw-ui-checkbox:not(#noop) input[type="checkbox"] + label:before {
 		display:none;
@@ -907,5 +908,17 @@ ul {
  
 	.mw-label.mw-namespace-label label, .mw-specialpage-summary {
 		font-size:1.3em;
+	}
+	
+	#ooui-2.mw-htmlform-submit.oo-ui-widget.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive.oo-ui-inputWidget.oo-ui-buttonElement.oo-ui-buttonElement-framed.oo-ui-labelElement.oo-ui-buttonInputWidget {
+		margin:0 -15px;
+	}
+
+	div.mw-body form.mw-ui-vform div.mw-htmlform-field-HTMLSubmitField > div, div.mw-body form.oo-ui-layout div.mw-htmlform-field-HTMLSubmitField > div, div.mw-body form.mw-ui-vform div.mw-htmlform-submit-buttons > div, div.mw-body form.oo-ui-layout div.mw-htmlform-submit-buttons > div {
+		margin:0 -15px;
+	}
+	
+	div.mw-body form.mw-ui-vform input, div.mw-body form.oo-ui-layout input {
+		margin-left: 1px;
 	}
 }
