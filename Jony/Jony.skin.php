@@ -24,11 +24,4 @@ class SkinJony extends SkinTemplate {
 			'skins.jony.js'
 		) );*/
 	}
-
-	/**
-	 * @param $out OutputPage
-	 */
-	function setupSkinUserCss( OutputPage $out ) {
-		parent::setupSkinUserCss( $out );
-	}
 }
