@@ -131,7 +131,8 @@ class JonyTemplate extends BaseTemplate {
 						'role' => 'contentinfo'
 					]
 				);
-				foreach ( $this->getFooterIcons( 'icononly' ) as $blockName => $footerIcons ) {
+				$footerIconsData = $this->get('footericons');
+				foreach ( $footerIconsData as $blockName => $footerIcons ) {
 					echo Html::openElement(
 						'li',
 						[
@@ -178,6 +179,8 @@ class JonyTemplate extends BaseTemplate {
 
 	/**
 	 * Generates a single sidebar portlet of any kind
+	 *
+	 * @param array $box
 	 * @return string html
 	 */
 	private function getPortlet( $box ) {
@@ -291,7 +294,9 @@ class JonyTemplate extends BaseTemplate {
 			if ( $boxName === false ) {
 				continue;
 			}
-			$html .= $this->getPortlet( $box, true );
+			if ( !is_bool( $box ) ) {
+				$html .= $this->getPortlet( $box, true );
+			}
 		}
 
 		return $html;
