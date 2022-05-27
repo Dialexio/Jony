@@ -23,6 +23,32 @@
 		]
 	},
 	"ResourceModules": {
+		"skins.jony.styles": {
+			"class": "ResourceLoaderSkinModule",
+			"features": {
+				"content": true,
+				"content-thumbnails": true,
+				"content-tables": true,
+				"elements": true,
+				"i18n-ordered-lists": true,
+				"i18n-all-lists-margins": true,
+				"i18n-headings": true,
+				"interface": true,
+				"interface-message-box": true,
+				"interface-category": true,
+				"logo": true,
+				"content-links": true,
+				"content-links-external": true
+			},
+			"styles": {
+				"resources/print.less": {
+					"media": "print"
+				},
+				"resources/screen.less": {
+					"media": "screen"
+				}
+			}
+		},
 		"skins.jony": {
 			"position" : "top",
 			"styles": {

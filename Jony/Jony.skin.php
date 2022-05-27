@@ -9,19 +9,29 @@ class SkinJony extends SkinTemplate {
 		$template = 'JonyTemplate', $useHeadElement = true;
 
 	/**
+	 * @inheritDoc
+	 */
+	public function __construct( $options ) {
+		$options['bodyOnly'] = true;
+		parent::__construct( $options );
+	}
+
+	/**
 	 * Add CSS via ResourceLoader
 	 *
 	 * @param $out OutputPage
 	 */
 	public function initPage( OutputPage $out ) {
-
-		$out->addModuleStyles( array(
-			'mediawiki.skinning.interface',
-			'mediawiki.skinning.content.externallinks',
-			'skins.jony'
-		) );
-/*		$out->addModules( array(
-			'skins.jony.js'
-		) );*/
+		if ( version_compare( MW_VERSION, '1.36', '<' ) ) {
+			$out->addModuleStyles( [
+				'mediawiki.skinning.interface',
+				'mediawiki.skinning.content.externallinks',
+				'skins.jony'
+			] );
+		} else {
+			$out->addModuleStyles( [
+				'skins.jony.styles'
+			] );
+		}
 	}
 }

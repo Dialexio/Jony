@@ -9,7 +9,9 @@ class JonyTemplate extends BaseTemplate {
 	 * Outputs the entire contents of the page
 	 */
 	public function execute() {
-		$this->html( 'headelement' );
+		if ( version_compare( MW_VERSION, '1.39', '<' ) ) {
+			$this->html( 'headelement' );
+		}
 		?>
 		<div id="mw-wrapper">
 			<?php
@@ -170,11 +172,11 @@ class JonyTemplate extends BaseTemplate {
 			</div>
 		</div>
 
-		<?php $this->printTrail() ?>
-		</body>
-		</html>
-
-		<?php
+		<?php 
+		if ( version_compare( MW_VERSION, '1.39', '<' ) ) {
+			$this->printTrail();
+			echo '</body></html>';
+		}
 	}
 
 	/**
