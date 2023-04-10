@@ -1,4 +1,6 @@
-# Jony
+## **This repository is no longer maintained. Please visit https://github.com/wikimedia/Jony for future updates.**
+
+## Jony
 A skin for MediaWiki, inspired by the user interface of modern versions of iOS.
 
 This skin has only been tested on MediaWiki 1.28.x branch. This skin may work with other versions, but compatibility is not ensured.
